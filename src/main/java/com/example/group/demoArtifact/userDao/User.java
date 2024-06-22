@@ -3,7 +3,7 @@ package com.example.group.demoArtifact.userDao;
 import java.time.LocalDate;
 
 public class User {
-    private int id;
+    private Integer id;
     private String name;
     private LocalDate birthDate;
 

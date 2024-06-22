@@ -2,8 +2,7 @@ package com.example.group.demoArtifact.controller;
 
 import com.example.group.demoArtifact.userDao.User;
 import com.example.group.demoArtifact.userDao.UserDaoService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +21,17 @@ public  UserController(UserDaoService user){
     @GetMapping("/all")
     public List<User> returnAll(){
         return userDao.userAll();
+    }
+
+    @GetMapping("/findone/{id}")
+    public User getOne(@PathVariable int id){
+    return userDao.findOne(id);
+    }
+
+    @PostMapping("/users")
+    public User createUser(@RequestBody  User user){
+    userDao.save(user);
+
+        return null;
     }
 }
