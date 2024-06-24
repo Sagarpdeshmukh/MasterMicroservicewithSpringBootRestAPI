@@ -3,6 +3,7 @@ package com.example.group.demoArtifact.controller;
 import com.example.group.demoArtifact.exception.UserNotFoundException;
 import com.example.group.demoArtifact.userDao.User;
 import com.example.group.demoArtifact.userDao.UserDaoService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -39,7 +40,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<Object> createUser(@RequestBody User user) {
+    public ResponseEntity<Object> createUser(@Valid  @RequestBody User user) {
       User us =   userDao.save(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{ids}").buildAndExpand(us.getId()).toUri();
         return ResponseEntity.created(location).build();

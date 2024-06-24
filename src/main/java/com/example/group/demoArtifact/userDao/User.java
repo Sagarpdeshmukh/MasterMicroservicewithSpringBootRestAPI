@@ -1,10 +1,17 @@
 package com.example.group.demoArtifact.userDao;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
 public class User {
     private Integer id;
+
+    @Size(min =  3,message = "name should be three characters")
     private String name;
+
+    @Past(message = "date should be in past ")
     private LocalDate birthDate;
 
     public User(int id, String name, LocalDate birthDate) {
