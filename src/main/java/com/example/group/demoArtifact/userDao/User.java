@@ -13,7 +13,7 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

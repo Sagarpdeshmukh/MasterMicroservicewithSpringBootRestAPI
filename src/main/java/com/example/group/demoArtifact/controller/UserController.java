@@ -44,4 +44,8 @@ public class UserController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{ids}").buildAndExpand(us.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
+    @DeleteMapping("/user/{id}")
+    public void deletUser(@PathVariable int id){
+        userDao.deleteUser(id);
+    }
 }
