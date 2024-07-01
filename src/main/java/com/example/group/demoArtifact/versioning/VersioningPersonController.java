@@ -15,4 +15,28 @@ public class VersioningPersonController {
     public Name getFirstVersion2(){
         return new Person2(new Name("Sagar","Deshmukh")).getName();
     }
+
+    @GetMapping(path = "/person",params = "version=1")
+    public Name getFirstVersionOfRequestParameter(){
+        return new Person2(new Name("Sagar","Deshmukh")).getName();
+    }
+
+
+
+    @GetMapping(path = "/person",params = "version=2")
+    public Name getFirstVersionOfRequestParameter2(){
+        return new Person2(new Name("Sagar","Deshmukh")).getName();
+    }
+
+
+
+    @GetMapping(path = "/person/header",headers = "X-API-VERSION=1")
+    public Name getFirstVersionOfRequestHeader(){
+        return new Person2(new Name("Sagar","Deshmukh")).getName();
+    }
+
+    @GetMapping(path = "/person/accpet",produces = "application/comapny.app.json")
+    public Name getFirstVersionOfRequestHeader2(){
+        return new Person2(new Name("Sagar","P_Deshmukh")).getName();
+    }
 }
