@@ -1,8 +1,10 @@
-package com.example.group.demoArtifact.controller;
+package com.example.group.demoArtifact.userDao;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-@JsonIgnoreProperties("field1")
+//@JsonIgnoreProperties("field1")
+@JsonFilter("someBeanfilter")
 public class SomeBean {
     private String field1;
     @JsonIgnore
