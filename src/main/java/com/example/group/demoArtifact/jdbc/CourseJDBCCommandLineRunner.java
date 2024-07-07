@@ -10,6 +10,7 @@ public class CourseJDBCCommandLineRunner implements CommandLineRunner {
     private CourseJDBCREpository repository;
     @Override
     public void run(String... args) throws Exception {
-repository.insert();
+repository.insert(new COurse(1,"learn gcp","Ranga"));
+repository.delete(1);
     }
 }

@@ -10,10 +10,18 @@ public class CourseJDBCREpository {
    private JdbcTemplate springJdbcTemplate ;
  private  static String INSERT_QUERY  = """
                insert into course (id,name,author)
-               values(1,'learn aws','in 28min');
+               values(?,?,?);
                """;
-   public void  insert(){
+   public void  insert(COurse course){
 
-       springJdbcTemplate.update(INSERT_QUERY);
+       springJdbcTemplate.update(INSERT_QUERY,course.getId(),course.getName(),course.getAuthor());
    }
+    private  static String DELETE_QUERY  = """
+               delete from  course where id = ? 
+               """;
+
+    public void  delete(long id){
+
+        springJdbcTemplate.update(DELETE_QUERY,id);
+    }
 }
