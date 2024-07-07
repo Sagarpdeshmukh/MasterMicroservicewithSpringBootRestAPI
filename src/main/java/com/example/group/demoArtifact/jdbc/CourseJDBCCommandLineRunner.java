@@ -12,5 +12,6 @@ public class CourseJDBCCommandLineRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
 repository.insert(new COurse(1,"learn gcp","Ranga"));
 repository.delete(1);
+System.out.println(repository.findbyId(1));
     }
 }
