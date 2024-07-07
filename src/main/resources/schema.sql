@@ -3,3 +3,7 @@ create table course(id bigint not null,
                   author varchar (255) not null,
                   primary key (id)
                );
+insert into course (id,name,author)
+values(1,'learn aws','in 28min');
+
+
