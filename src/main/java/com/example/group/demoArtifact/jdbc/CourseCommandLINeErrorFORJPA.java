@@ -26,6 +26,9 @@ public class CourseCommandLINeErrorFORJPA implements CommandLineRunner {
         //this are the inbuild method min Spring Data JPA like deleteByID,findById;
         repository.deleteById(1L);
         System.out.println(repository.findById(1L));
+        System.out.println(repository.findAll());
+        System.out.println(repository.findByAuthor(""));
+
 
     }
 }
