@@ -1,8 +1,21 @@
 package com.example.group.demoArtifact.jdbc;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class COurse {
+    public  COurse(){
+
+    }
+    @Id
     private long id;
+    @Column(name = "name")
     private  String name;
+    @Column(name = "author")
+    //not mandatory beacuse DB name and this is same if you want to give diff name
+    // then only mandatory this  @Column(name = "author")  this means map ur java bean to table
     private String author;
 
     public COurse(long id, String name, String author) {
