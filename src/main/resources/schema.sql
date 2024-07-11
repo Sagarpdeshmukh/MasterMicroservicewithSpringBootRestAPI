@@ -7,3 +7,5 @@ create table if not exists user_details (
 insert into user_details (id, name, author) values (1001, 'ranga', 'in89min');
 insert into user_details (id, name, author) values (1002, 'ranga', 'in89min');
 insert into user_details (id, name, author) values (10023, 'ranga', 'in89min');
+
+
