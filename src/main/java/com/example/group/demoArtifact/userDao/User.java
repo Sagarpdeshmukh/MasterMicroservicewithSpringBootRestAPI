@@ -11,6 +11,10 @@ import java.time.LocalDate;
 
 @Entity(name = "user_details")
 public class User {
+
+    User(){
+
+    }
     @Id
     @GeneratedValue
     private Integer id;

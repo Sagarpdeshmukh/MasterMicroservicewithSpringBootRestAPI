@@ -17,11 +17,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-public class UserController {
-    private UserDaoService userDao;
+public class UserResource {
+    private UserDaoService service;
 
-    public UserController(UserDaoService user) {
-        this.userDao = user;
+    public UserResource(UserDaoService service) {
+        this.service = service;
 
     }
 
@@ -32,33 +32,33 @@ public class UserController {
 
     @GetMapping("/all")
     public List<User> returnAll() {
-      return userDao.userAll();
+      return service.userAll();
     }
 
     @GetMapping("/findone/{id}")
     public User getOne(@PathVariable int id) {
-      User  od =   userDao.findOne(id);
+      User  od =   service.findOne(id);
         if(od == null) {
             throw new UserNotFoundException("id "+id);
         }
-        return userDao.findOne(id);
+        return service.findOne(id);
     }
 
     @PostMapping("/users")
     public ResponseEntity<Object> createUser(@Valid  @RequestBody User user) {
-      User us =   userDao.save(user);
+      User us =   service.save(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{ids}").buildAndExpand(us.getId()).toUri();
         return ResponseEntity.created(location).build();
     }
     @DeleteMapping("/user/{id}")
     public void deletUser(@PathVariable int id){
-        userDao.deleteUser(id);
+        service.deleteUser(id);
     }
 
     @GetMapping("/findone/hateoas/{id}")
     //hateos consist 1)EntityModel  2) WebMvcBuilder
     public EntityModel<User> getOneHateos(@PathVariable int id) {
-        User  od =   userDao.findOne(id);
+        User  od =   service.findOne(id);
         if(od == null)
             throw new UserNotFoundException("id "+id);
 
